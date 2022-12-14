@@ -9,7 +9,7 @@ Config.BountyBoard2 = false
 Config.Parts = false   
  
 -- ipl 
-Config.Unknown = true  
+Config.Jail = true  
  
 
 Config.Label = "BizTemplate"

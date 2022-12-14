@@ -3,6 +3,7 @@ Config.Commands = true  -- For testing set to false for live server
 Config.TeleportME = true -- For testing set to false for live server
 
 -- imap
+Config.Construction = 1 
 Config.Unknown1 = true 
 Config.Unknown2 = true 
 Config.Unknown3 = true 

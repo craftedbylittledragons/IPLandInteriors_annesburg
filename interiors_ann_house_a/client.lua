@@ -34,8 +34,7 @@ function EnableResouresIMAP()
             RequestImap(-1636879249)  -- New Hanover -- Near Annesburg Mining Town -- Normal Looking Interior
         end  
     else 
-    end 
-  
+    end  
 
     if Config.Wheel == true then 
         RequestImap(-1106668087)  -- New Hanover -- Near Annesburg Mining Town -- Adds Wagon Wheel near Front Door

@@ -19,7 +19,7 @@ function EnableResouresIMAP()
 end
 
 function EnableResouresINTERIORS(x, y, z) 
-    if Config.Unknow == true then 
+    if Config.Jail == true then 
         local interior = GetInteriorAtCoords(x, y, z)   
         ActivateInteriorEntitySet(interior, "ann_jail_int")        -- main
         --ActivateInteriorEntitySet(interior, "________________")        -- main

@@ -3,35 +3,24 @@ local interiorsActive = false
 local character_selected = false 
 
 ----------- turn on the bar ------
-function EnableResouresIMAP()         
-    --------------------------------  Keane's Saloon 
-    if Config.HayBales == true then
-        RequestImap(-2083943324) --hay bales and boxes outside Keane's Saloon in valentine 
-    end    
-    if Config.Unknow == true then
-        RequestImap(666617953) -- Something relating to BizTemplate
-    end     
-    if Config.Debris == true then 
-        RequestImap(610256856) -- New Hanover -- Valentine -- Keane's Saloon -- Debris and Remodle next to Liqour
-    end 
+function EnableResouresIMAP()            
+    if Config.Cumberland == true then
 	--## Cumberland Forest ##--
-	RequestImap(604668055)    -- New Hanover -- Cumberland Forest -- Tree Logs -- Debris Near Road
-	RequestImap(1672215059)    -- New Hanover -- Cumberland Forest -- Tree Logs -- Debris on the Road
-	RequestImap(23211744)   -- New Hanover -- Cumberland Forest -- Tree Logs -- Same as Above 1672215059
-	RequestImap(-528294019)    -- New Hanover -- Cumberland Forest -- Tree Logs -- TNT Line Leading Towards Road
-     
+	    RequestImap(604668055)    -- New Hanover -- Cumberland Forest -- Tree Logs -- Debris Near Road
+    	RequestImap(1672215059)    -- New Hanover -- Cumberland Forest -- Tree Logs -- Debris on the Road
+	    RequestImap(23211744)   -- New Hanover -- Cumberland Forest -- Tree Logs -- Same as Above 1672215059
+	    RequestImap(-528294019)    -- New Hanover -- Cumberland Forest -- Tree Logs -- TNT Line Leading Towards Road
+    end  
 end
 
 function EnableResouresINTERIORS(x, y, z)  
     local interior = GetInteriorAtCoords(x, y, z)  
     --[[
-        [29698] = {x=-241.58325195313,y=769.90649414063,z=117.54511260986,typeHashId=-565068911,typeHashName="val_saloon2_int",rpf="val_saloon2_int.rpf"},
-        29698 	-565068911 	val_saloon2_int 	l_00260edcej   
-    --]]
     ActivateInteriorEntitySet(interior, "val_saloon2_int")       
-    if Config.Unknow == true then  
+    if Config.Unknow1 == true then  
         ActivateInteriorEntitySet(interior, "l_00260edcej")         
-    end   
+    end       
+    --]]
 
 end
 
@@ -44,14 +33,14 @@ function DisableResourcesIMAPS()
 	RemoveImap(1672215059)    -- New Hanover -- Cumberland Forest -- Tree Logs -- Debris on the Road
 	RemoveImap(23211744)   -- New Hanover -- Cumberland Forest -- Tree Logs -- Same as Above 1672215059
 	RemoveImap(-528294019)    -- New Hanover -- Cumberland Forest -- Tree Logs -- TNT Line Leading Towards Road
- 
-    
 end
 
 function DisableResourcesINTERIORS(x, y, z)  
     local interior = GetInteriorAtCoords(x, y, z)    
+    --[[
     DeactivateInteriorEntitySet(interior, "val_saloon2_int")     
     DeactivateInteriorEntitySet(interior, "l_00260edcej")         
+    --]]    
 end    
  
  

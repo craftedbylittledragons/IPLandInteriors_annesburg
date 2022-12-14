@@ -2,13 +2,11 @@ Config = {}
 Config.Commands = true  -- For testing set to false for live server
 Config.TeleportME = true -- For testing set to false for live server
 
--- imap
-Config.Smoke = true 
-Config.HayBales = false  
+-- imap  
+Config.Cumberland = true 
  
--- ipl 
-Config.Unknown = true 
-Config.Debris = false 
+-- interior 
+Config.Unknown1 = true  
  
 
 Config.Label = "BizTemplate"

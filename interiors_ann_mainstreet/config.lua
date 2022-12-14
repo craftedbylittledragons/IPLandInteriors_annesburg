@@ -3,8 +3,11 @@ Config.Commands = true  -- For testing set to false for live server
 Config.TeleportME = true -- For testing set to false for live server
 
 -- imap
-Config.Smoke = true 
-Config.HayBales = false  
+Config.FastTravel = false 
+Config.LogFence = true  
+Config.Debris = false 
+Config.Rope = true 
+Config.Docks = true 
  
 -- ipl 
 Config.Unknown = true 

@@ -1,39 +1,36 @@
 ---------- Manual definitions ---  
 local interiorsActive = false
 local character_selected = false 
-
------------ turn on the bar ------
-function EnableResouresIMAP()         
-    --------------------------------  Keane's Saloon 
-    if Config.HayBales == true then
-        RequestImap(-2083943324) --hay bales and boxes outside Keane's Saloon in valentine 
+ 
+function EnableResouresIMAP()          
+    if Config.FastTravel == true then
+        RequestImap(582879672)  -- New Hanover -- Annesburg -- Fast Travel 
     end    
-    if Config.Unknow == true then
-        RequestImap(666617953) -- Something relating to BizTemplate
+    if Config.LogFence == true then
+        RequestImap(429527177)  -- New Hanover -- Annesburg -- log fencing parts and dec
     end     
     if Config.Debris == true then 
-        RequestImap(610256856) -- New Hanover -- Valentine -- Keane's Saloon -- Debris and Remodle next to Liqour
+        RequestImap(-1584316325)-- New Hanover -- Annesburg -- Crates, Barrels and Wagons #01
+        RequestImap(-537740003) -- New Hanover -- Annesburg -- Crates, Barrels and Wagons #02
     end 
-    	--## Annesburg ##-- 
-	RequestImap(582879672)  -- New Hanover -- Annesburg -- Fast Travel 
-	RequestImap(-687164887) -- New Hanover -- Annesburg -- Model LOD do not remove
-	RequestImap(429527177)  -- New Hanover -- Annesburg -- log fencing parts and dec
-	RequestImap(-1584316325)-- New Hanover -- Annesburg -- Crates, Barrels and Wagons #01
-	RequestImap(-537740003) -- New Hanover -- Annesburg -- Crates, Barrels and Wagons #02
-	RequestImap(-1984145124)-- New Hanover -- Annesburg -- Rope on water
-    RequestImap(-1315256079)-- New Hanover -- Annesburg -- Unknown Imap at Docks #01 
+    if Config.Rope == true then 
+        RequestImap(-1984145124)-- New Hanover -- Annesburg -- Rope on water
+    end     
+    if Config.Docks == true then
+        RequestImap(-1315256079)-- New Hanover -- Annesburg -- Unknown Imap at Docks #01 
+    end     
+    	--## Annesburg ##--  
+	RequestImap(-687164887) -- New Hanover -- Annesburg -- Model LOD do not remove  
 end
 
 function EnableResouresINTERIORS(x, y, z)  
     local interior = GetInteriorAtCoords(x, y, z)  
-    --[[
-        [29698] = {x=-241.58325195313,y=769.90649414063,z=117.54511260986,typeHashId=-565068911,typeHashName="val_saloon2_int",rpf="val_saloon2_int.rpf"},
-        29698 	-565068911 	val_saloon2_int 	l_00260edcej   
-    --]]
+    --[[ 
     ActivateInteriorEntitySet(interior, "val_saloon2_int")       
     if Config.Unknow == true then  
         ActivateInteriorEntitySet(interior, "l_00260edcej")         
-    end   
+    end       
+    --]]
 
 end
 
@@ -53,8 +50,10 @@ end
 
 function DisableResourcesINTERIORS(x, y, z)  
     local interior = GetInteriorAtCoords(x, y, z)    
+    --[[ 
     DeactivateInteriorEntitySet(interior, "val_saloon2_int")     
-    DeactivateInteriorEntitySet(interior, "l_00260edcej")         
+    DeactivateInteriorEntitySet(interior, "l_00260edcej")        
+    --]]   
 end    
  
  
