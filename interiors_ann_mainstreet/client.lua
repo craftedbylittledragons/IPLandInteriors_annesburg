@@ -2,7 +2,7 @@
 local interiorsActive = false
 local character_selected = false 
  
-function EnableResouresIMAP()          
+function EnableResouresYMAPS()          
     if Config.FastTravel == true then
         RequestImap(582879672)  -- New Hanover -- Annesburg -- Fast Travel 
     end    
@@ -37,7 +37,7 @@ end
 -- currently there are two hitching posts. 
 
 ----------- turn off the bar ------
-function DisableResourcesIMAPS() 
+function DisableResourcesYMAPS() 
 	--## Annesburg ##-- 
 	RemoveImap(582879672)  -- New Hanover -- Annesburg -- Fast Travel 
 	RemoveImap(-687164887) -- New Hanover -- Annesburg -- Model LOD do not remove
@@ -63,7 +63,7 @@ end
 AddEventHandler('onResourceStop', function(resource) 
     if resource == GetCurrentResourceName() then     
         -- when resource stops disable them, admin is restarting the script
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
     end
 end)
@@ -75,7 +75,7 @@ AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then         
         Citizen.Wait(3000)
         -- interiors loads all of these, so we need to disable them 
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
         Citizen.Wait(3000)        
         -- because the character is already logged in on resource "re"start
@@ -101,11 +101,11 @@ Citizen.CreateThread(function()
     end 
     if character_selected == true and interiorsActive == false then 
         --- cleanup any previous scripts loading content
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
 
         -- basically run once after character has loadded in  
-        EnableResouresIMAP() 
+        EnableResouresYMAPS() 
         EnableResouresINTERIORS(Config.x, Config.y, Config.z)
         interiorsActive = true
         unlockDoors()  

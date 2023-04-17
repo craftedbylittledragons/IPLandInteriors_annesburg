@@ -9,14 +9,14 @@ Config.Commands = true   -- For testing set to false for live server
 Config.TeleportME = true   -- For testing set to false for live server
 
 ----------- turn on the house ------
-function EnableResouresIMAP() 
+function EnableResouresYMAPS() 
     -- House on Fire  --
 	RequestImap(-1387511711)   -- shell of cabin  
 	RequestImap(1901132483)   --- interior of cabin
 end
 
 ----------- turn off the house ------
-function DisableResourcesIMAPS()
+function DisableResourcesYMAPS()
     --------- ### Problem IPLs ### 
 	RemoveImap(-1387511711)   -- shell of cabin 
 	RemoveImap(1901132483)   --- interior of cabin
@@ -31,10 +31,10 @@ function EnableSmallFIREIMAP()
 end 
    
 ----------- turn off the fires  ------
-function DisableBlazeFIREIMAPS()  
+function DisableBlazeFIREYMAPS()  
 	RemoveImap(-2082345587)   -- onfire  -- blazing   
 end 
-function DisableSmallFIREIMAPS()   
+function DisableSmallFIREYMAPS()   
 	RemoveImap(77337110)		-- secondary smaller fire
 end 
     
@@ -64,7 +64,7 @@ RegisterCommand("turnofffire", function(source, args)
 end)
 RegisterNetEvent('HF:turnofffire')
 AddEventHandler('HF:turnofffire', function(no_String)  
-	DisableFIREIMAPS()
+	DisableFIREYMAPS()
     Wait(800) 
 end)  
 
@@ -81,7 +81,7 @@ RegisterCommand("turnonhouse", function(source, args)
 end)
 RegisterNetEvent('HF:turnonhouse')
 AddEventHandler('HF:turnonhouse', function(no_String)  
-	EnableResouresIMAP() 
+	EnableResouresYMAPS() 
     Wait(800) 
 end) 
   
@@ -94,7 +94,7 @@ RegisterCommand("turnoffhouse", function(source, args)
 end)
 RegisterNetEvent('HF:turnoffhouse')
 AddEventHandler('HF:turnoffhouse', function(no_String)  
-	DisableResourcesIMAPS()
+	DisableResourcesYMAPS()
     Wait(800) 
 end)  
 
@@ -104,9 +104,9 @@ end)
 AddEventHandler('onResourceStop', function(resource) 
     if resource == GetCurrentResourceName() then     
         -- when resource stops disable them, admin is restarting the script
-        DisableResourcesIMAPS()
-        DisableSmallFIREIMAPS()
-        DisableBlazeFIREIMAPS()
+        DisableResourcesYMAPS()
+        DisableSmallFIREYMAPS()
+        DisableBlazeFIREYMAPS()
     end
 end)
 
@@ -117,9 +117,9 @@ AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then         
         Citizen.Wait(3000)
         -- interiors loads all of these, so we need to disable them
-        DisableResourcesIMAPS()
-        DisableSmallFIREIMAPS()
-        DisableBlazeFIREIMAPS()    
+        DisableResourcesYMAPS()
+        DisableSmallFIREYMAPS()
+        DisableBlazeFIREYMAPS()    
         Citizen.Wait(3000)        
         -- because the character is already logged in on resource "re"start
         character_selected = true
@@ -175,7 +175,7 @@ Citizen.CreateThread(function()
     end 
     if character_selected == true and interiorsActive == false then 
         -- basically run once after character has loadded in 
-        EnableResouresIMAP()
+        EnableResouresYMAPS()
         interiorsActive = true
     end
 end)

@@ -3,7 +3,7 @@ local interiorsActive = false
 local character_selected = false 
 
 ----------- turn on the bar ------
-function EnableResouresIMAP()          
+function EnableResouresYMAPS()          
     if Config.Construction == 1 then
         RequestImap(1517736440)   -- New Hanover -- Annesburg -- Building Construction Part #01
     elseif Config.Construction == 2 then
@@ -38,7 +38,7 @@ end
 -- currently there are two hitching posts. 
 
 ----------- turn off the bar ------
-function DisableResourcesIMAPS() 
+function DisableResourcesYMAPS() 
 	RemoveImap(1517736440)   -- New Hanover -- Annesburg -- Building Construction Part #01
 	RemoveImap(-693132475)   -- New Hanover -- Annesburg -- Building Construction Part #02
 	RemoveImap(-1509154451)-- New Hanover -- Annesburg -- Building Construction Completed (Walls) #01
@@ -63,7 +63,7 @@ end
 AddEventHandler('onResourceStop', function(resource) 
     if resource == GetCurrentResourceName() then     
         -- when resource stops disable them, admin is restarting the script
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
     end
 end)
@@ -75,7 +75,7 @@ AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then         
         Citizen.Wait(3000)
         -- interiors loads all of these, so we need to disable them 
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
         Citizen.Wait(3000)        
         -- because the character is already logged in on resource "re"start
@@ -101,11 +101,11 @@ Citizen.CreateThread(function()
     end 
     if character_selected == true and interiorsActive == false then 
         --- cleanup any previous scripts loading content
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
 
         -- basically run once after character has loadded in  
-        EnableResouresIMAP() 
+        EnableResouresYMAPS() 
         EnableResouresINTERIORS(Config.x, Config.y, Config.z)
         interiorsActive = true
         unlockDoors()  
